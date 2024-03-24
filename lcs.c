@@ -8,14 +8,14 @@ int main(){
     printf("enter the word 2: \n");
     scanf("%s",b);
     la=strlen(a);
-    lb=strlen(a);
+    lb=strlen(b);
     int c[la+1][lb+1];
     char dir[la+1][lb+1];
 
-    for(i=0;i<la;i++){
+    for(i=0;i<=la;i++){
         c[i][0]=0;
     }
-    for(i=0;i<la;i++){
+    for(j=0;j<=lb;j++){
         c[0][j]=0;
     }
     for(i=1;i<=la;i++){
@@ -28,9 +28,24 @@ int main(){
                 dir[i][j]='v';
             }else{
                 c[i][j]=c[i][j-1];
-                 dir[i][j]='d';
+                 dir[i][j]='h';
             }
         }
+    }
+     printf("Matrix c:\n");
+    for(i = 0; i <= la; i++){
+        for(j = 0; j <= lb; j++){
+            printf("%d ", c[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("\nDirection Matrix dir:\n");
+    for(i = 0; i <= la; i++){
+        for(j = 0; j <= lb; j++){
+            printf("%c ", dir[i][j]);
+        }
+        printf("\n");
     }
    
     i=la;
@@ -47,10 +62,11 @@ int main(){
         }else{
             j--;
         }
+    }
          printf("the Lcs is");
          for(i=k-1;i>=0;i--){
             printf("%c",buf[i]);
-         }
+         
     }
 
     return 0;
